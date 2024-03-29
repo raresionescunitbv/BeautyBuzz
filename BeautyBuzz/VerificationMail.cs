@@ -33,7 +33,7 @@ namespace BeautyBuzz
         {
             InitializeComponent();
             conn = new SqlConnection($"Server={server};Database={dbName};Trusted_Connection=False;Encrypt=True;");
-            timvcode = new System.Windows.Forms.Timer();
+          //  timvcode = new System.Windows.Forms.Timer();
             timvcode.Tick += new EventHandler(timvcode_Tick);
             timvcode.Interval = 1000;
             timvcode.Start();
