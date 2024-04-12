@@ -18,13 +18,13 @@ namespace BeautyBuzz
 {
     public partial class Form1 : Form
     {
-      
+
         public Form1()
         {
             InitializeComponent();
             textBoxInput.Visible = false;
             AddRequiredLabels();
-      
+
 
 
         }
@@ -337,7 +337,7 @@ namespace BeautyBuzz
             // Daca totul este in ordine, afisam un mesaj de succes
             if (checkBox1.Checked)
             {
-                SmsVerificationApp smsVerification = new SmsVerificationApp(lastName, firstName, phoneNumber,password, confirmPassword);
+                SmsVerificationApp smsVerification = new SmsVerificationApp(lastName, firstName, phoneNumber, password, confirmPassword);
                 smsVerification.ShowDialog();
 
                 this.Hide();
@@ -491,7 +491,7 @@ namespace BeautyBuzz
 
         private void button1_Click(object sender, EventArgs e)
         {
-            BeautyBuzz back    = new BeautyBuzz();
+            BeautyBuzz back = new BeautyBuzz();
             back.Show();
             this.Hide();
         }

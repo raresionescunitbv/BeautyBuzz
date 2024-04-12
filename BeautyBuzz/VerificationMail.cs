@@ -10,33 +10,32 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
+using System.Configuration;
+using System.Xml.Linq;
 
 namespace BeautyBuzz
 {
     public partial class VerificationMail : Form
     {
-        public SqlConnection conn;
-
+        private SingleTon singleTon = SingleTon.Instance;
         private string firstName;
         private string lastName;
         private string userPassword;
         private string mail;
         private string confirmPassword;
 
-        string server = "DESKTOP-NRU19T4\\SQLEXPRESS";
-        string dbName = "master";
-
         private System.Windows.Forms.Timer timvcode;
-        public int Vcode { get; private set; }
+        private int Vcode { get; set; }
 
         public VerificationMail(string firstName, string lastName, string userPassword, string mail, string confirmPassword)
         {
             InitializeComponent();
-            conn = new SqlConnection($"Server={server};Database={dbName};Trusted_Connection=False;Encrypt=True;");
-          //  timvcode = new System.Windows.Forms.Timer();
+
+            timvcode = new System.Windows.Forms.Timer();
             timvcode.Tick += new EventHandler(timvcode_Tick);
             timvcode.Interval = 1000;
             timvcode.Start();
+
             this.lastName = lastName;
             this.firstName = firstName;
             this.userPassword = userPassword;
@@ -48,10 +47,10 @@ namespace BeautyBuzz
         {
             timvcode.Stop();
 
-            string to, from, pass, mail;
+            string to, mail;
             to = VerificationCode.Text;
-            from = "g.brujbeanu18@gmail.com";
-            pass = "imuv orhw vpck mgzm"; // Your app password goes here
+            string fromAddress = ConfigurationManager.AppSettings["GmailAddress"];
+            string password = ConfigurationManager.AppSettings["GmailPassword"];
 
             Random rnd = new Random();
             this.Vcode = rnd.Next(1000, 9999); // Generate the verification code here
@@ -60,7 +59,7 @@ namespace BeautyBuzz
 
             MailMessage message = new MailMessage();
             message.To.Add(to);
-            message.From = new MailAddress("BeautyBuzz <g.brujbeanu18@gmail.com>");
+            message.From = new MailAddress(fromAddress, "BeautyBuzz");
             message.Body = "Codul de verificare este: " + mail;
             message.Subject = "Mail-ul de verificare pentru confirmarea contului BeautyBuzz este:";
 
@@ -68,7 +67,7 @@ namespace BeautyBuzz
             smtp.EnableSsl = true;
             smtp.Port = 587;
             smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-            smtp.Credentials = new NetworkCredential(from, pass);
+            smtp.Credentials = new NetworkCredential(fromAddress, password);
             try
             {
                 smtp.Send(message);
@@ -92,8 +91,19 @@ namespace BeautyBuzz
                     MessageBox.Show("Codul de verificare introdus este corect!", "Succes");
 
                     this.Close();
+                    if (IsEmailExists(mail))
+                    {
+                        MessageBox.Show("Această adresă de e-mail există deja în sistem!", "Eroare");
+                        BeautyBuzz beautyBuzzz = new BeautyBuzz();
+                        beautyBuzzz.Show();
+                        this.Hide();
+                        return; // Iesiti din functie pentru a evita inregistrarea duplicatelor
 
-                    using (SqlConnection con = new SqlConnection($"Server={server};Database={dbName};Trusted_Connection=True;TrustServerCertificate=True;"))
+
+                    }
+
+
+                    using (SqlConnection con = new SqlConnection(singleTon.GetConnection().ConnectionString))
                     {
                         string query = "INSERT INTO Tabel2 (LastName, FirstName, Password, Mail, ConfirmPassword) VALUES (@LastName, @FirstName, @Password, @Mail, @ConfirmPassword)";
                         SqlCommand cmd = new SqlCommand(query, con);
@@ -125,6 +135,7 @@ namespace BeautyBuzz
 
                     BeautyBuzz beautyBuzz = new BeautyBuzz();
                     beautyBuzz.Show();
+                    this.Hide();
                 }
                 else
                 {
@@ -134,6 +145,19 @@ namespace BeautyBuzz
             else
             {
                 MessageBox.Show("Introduceți un cod de verificare valid!", "Eroare");
+            }
+        }
+        private bool IsEmailExists(string email)
+        {
+            using (SqlConnection con = new SqlConnection(singleTon.GetConnection().ConnectionString))
+            {
+                string query = "SELECT COUNT(*) FROM Tabel2 WHERE Mail = @Mail";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@Mail", email);
+
+                con.Open();
+                int count = (int)cmd.ExecuteScalar();
+                return count > 0;
             }
         }
 

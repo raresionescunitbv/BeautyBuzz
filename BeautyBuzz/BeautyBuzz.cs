@@ -1,37 +1,34 @@
 ﻿using BeautyBuzz.Properties;
 using Microsoft.Data.SqlClient;
-using System;
-using System.Data.SqlClient;
+
 using System.Windows.Forms;
 using Twilio.Types;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 namespace BeautyBuzz
 {
     public partial class BeautyBuzz : Form
     {
-        string username;
-        public SqlConnection conn;
+        private SingleTon singleTon = SingleTon.Instance;
+        private string nume_salon;
+        private string nume_angajat;
+        public string Textbox1Value { get; set; }
 
-        public static object Properties { get; internal set; }
         public BeautyBuzz()
         {
             InitializeComponent();
             textBox2.PasswordChar = '*';
-            string server = "DESKTOP-NRU19T4\\SQLEXPRESS";
-            string dbName = "master";
-            string connectionString = $"Server={server};Database={dbName};Trusted_Connection=True;TrustServerCertificate=True";
-
-            conn = new SqlConnection(connectionString);
+           
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
-
+            Textbox1Value = textBox1.Text; // Actualizăm Textbox1Value cu valoarea din textBox1
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string username = textBox1.Text;
+            string username = Textbox1Value;
             string password = textBox2.Text;
 
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
@@ -42,23 +39,30 @@ namespace BeautyBuzz
 
             try
             {
-                conn.Open();
+                // Deschideți conexiunea la baza de date utilizând clasa SingleTon
+                singleTon.GetConnection().Open();
 
                 // Verificați întâi în Tabel2 pentru adresa de e-mail și parolă
                 string queryEmail = "SELECT COUNT(*) FROM Tabel2 WHERE Mail = @Username AND Password = @Password";
-                SqlCommand cmdEmail = new SqlCommand(queryEmail, conn);
+                SqlCommand cmdEmail = new SqlCommand(queryEmail, singleTon.GetConnection());
                 cmdEmail.Parameters.AddWithValue("@Username", username);
                 cmdEmail.Parameters.AddWithValue("@Password", password);
                 int rowCountEmail = (int)cmdEmail.ExecuteScalar();
+               // UserControlAcasa userControlAcasa = new UserControlAcasa();
+                //userControlAcasa.UserEmail = username;
+             
+
+
 
                 // Dacă autentificarea prin e-mail a eșuat, verificați în TabelPhone pentru numărul de telefon și parolă
                 if (rowCountEmail == 0)
                 {
                     string queryPhone = "SELECT COUNT(*) FROM TabelPhone WHERE PhoneNumber = @Username AND Password = @Password";
-                    SqlCommand cmdPhone = new SqlCommand(queryPhone, conn);
+                    SqlCommand cmdPhone = new SqlCommand(queryPhone, singleTon.GetConnection());
                     cmdPhone.Parameters.AddWithValue("@Username", username);
                     cmdPhone.Parameters.AddWithValue("@Password", password);
                     int rowCountPhone = (int)cmdPhone.ExecuteScalar();
+                   
 
                     if (rowCountPhone > 0)
                     {
@@ -67,6 +71,7 @@ namespace BeautyBuzz
                         Form f1 = new Form();
                         f1.Show();
                         this.Hide();
+                      
                     }
                     else
                     {
@@ -75,11 +80,11 @@ namespace BeautyBuzz
                 }
                 else
                 {
-                    MessageBox.Show("Autentificare reușită!");
+                    // MessageBox.Show("Autentificare reușită!");
                     // Deschideți formularul corespunzător după autentificare
-                    Form f1 = new Form();
-                    f1.Show();
                     this.Hide();
+                    Menu menu = new Menu(username,nume_salon,nume_angajat);
+                    menu.Show();
                 }
             }
             catch (SqlException ex)
@@ -88,7 +93,8 @@ namespace BeautyBuzz
             }
             finally
             {
-                conn.Close();
+                // Închideți conexiunea la baza de date
+                singleTon.GetConnection().Close();
             }
         }
 
@@ -98,13 +104,10 @@ namespace BeautyBuzz
             form1.Show();
             this.Hide();
 
-
             button2.FlatStyle = FlatStyle.Flat;
             button2.FlatAppearance.BorderColor = button2.BackColor;
             button2.ForeColor = Color.Blue;
             button2.Font = new Font(button2.Font, FontStyle.Underline);
-
-
         }
 
         private void BeautyBuzz_Load(object sender, EventArgs e)
@@ -115,6 +118,7 @@ namespace BeautyBuzz
             label4.BackColor = Color.Transparent;
             checkBoxLoginPass.BackColor = Color.Transparent;
         }
+
         private void button1_Click_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -122,11 +126,6 @@ namespace BeautyBuzz
                 button1.Focus();
                 e.SuppressKeyPress = true;
             }
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void checkBoxLoginPass_CheckedChanged(object sender, EventArgs e)
@@ -148,6 +147,5 @@ namespace BeautyBuzz
             SendPass sendPass = new SendPass(username, password);
             sendPass.ShowDialog();
         }
-
     }
 }

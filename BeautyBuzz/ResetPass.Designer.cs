@@ -38,40 +38,43 @@
             // NewResetPass
             // 
             NewResetPass.AutoSize = true;
-            NewResetPass.Location = new Point(86, 59);
+            NewResetPass.Location = new Point(75, 44);
             NewResetPass.Name = "NewResetPass";
-            NewResetPass.Size = new Size(90, 20);
+            NewResetPass.Size = new Size(72, 15);
             NewResetPass.TabIndex = 0;
             NewResetPass.Text = "Noua Parola";
             // 
             // ConfirmNewPass
             // 
             ConfirmNewPass.AutoSize = true;
-            ConfirmNewPass.Location = new Point(86, 127);
+            ConfirmNewPass.Location = new Point(75, 95);
             ConfirmNewPass.Name = "ConfirmNewPass";
-            ConfirmNewPass.Size = new Size(79, 20);
+            ConfirmNewPass.Size = new Size(64, 15);
             ConfirmNewPass.TabIndex = 1;
             ConfirmNewPass.Text = "Confirmati";
             // 
             // textBoxNewPass
             // 
-            textBoxNewPass.Location = new Point(193, 56);
+            textBoxNewPass.Location = new Point(169, 42);
+            textBoxNewPass.Margin = new Padding(3, 2, 3, 2);
             textBoxNewPass.Name = "textBoxNewPass";
-            textBoxNewPass.Size = new Size(225, 27);
+            textBoxNewPass.Size = new Size(197, 23);
             textBoxNewPass.TabIndex = 2;
             // 
             // textBoxConfirmNewPass
             // 
-            textBoxConfirmNewPass.Location = new Point(193, 124);
+            textBoxConfirmNewPass.Location = new Point(169, 93);
+            textBoxConfirmNewPass.Margin = new Padding(3, 2, 3, 2);
             textBoxConfirmNewPass.Name = "textBoxConfirmNewPass";
-            textBoxConfirmNewPass.Size = new Size(225, 27);
+            textBoxConfirmNewPass.Size = new Size(197, 23);
             textBoxConfirmNewPass.TabIndex = 3;
             // 
             // submitNewPass
             // 
-            submitNewPass.Location = new Point(324, 173);
+            submitNewPass.Location = new Point(284, 130);
+            submitNewPass.Margin = new Padding(3, 2, 3, 2);
             submitNewPass.Name = "submitNewPass";
-            submitNewPass.Size = new Size(94, 29);
+            submitNewPass.Size = new Size(82, 22);
             submitNewPass.TabIndex = 4;
             submitNewPass.Text = "reset";
             submitNewPass.UseVisualStyleBackColor = true;
@@ -79,16 +82,18 @@
             // 
             // ResetPass
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(526, 264);
+            ClientSize = new Size(460, 198);
             Controls.Add(submitNewPass);
             Controls.Add(textBoxConfirmNewPass);
             Controls.Add(textBoxNewPass);
             Controls.Add(ConfirmNewPass);
             Controls.Add(NewResetPass);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "ResetPass";
             Text = "ResetPass";
+            Load += ResetPass_Load;
             ResumeLayout(false);
             PerformLayout();
         }

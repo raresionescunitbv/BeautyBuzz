@@ -101,6 +101,7 @@
             Controls.Add(mailForgetPass);
             Name = "SendPass";
             Text = "SendPass";
+            Load += SendPass_Load;
             ResumeLayout(false);
             PerformLayout();
         }

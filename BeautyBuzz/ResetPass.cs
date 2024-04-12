@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
+
 using Azure.Identity;
 using System.Runtime.CompilerServices;
 using Microsoft.Data.SqlClient;
@@ -18,8 +18,7 @@ namespace BeautyBuzz
     public partial class ResetPass : Form
     {
         private string username;
-        private string server = "DESKTOP-NRU19T4\\SQLEXPRESS";
-        private string dbName = "master";
+        private SingleTon singleTon = SingleTon.Instance;
 
         public ResetPass(string username)
         {
@@ -35,7 +34,8 @@ namespace BeautyBuzz
             {
                 try
                 {
-                    using (SqlConnection conn = new SqlConnection($"Server={server};Database={dbName};Trusted_Connection=True;TrustServerCertificate=True;"))
+                    // Folosește clasa SingleTon pentru a obține conexiunea la baza de date
+                    using (SqlConnection conn = singleTon.GetConnection())
                     {
                         conn.Open();
                         string updateQuery = "UPDATE [dbo].[Tabel2] SET [Password] = @NewPassword WHERE [Mail] = @Username";
@@ -60,6 +60,11 @@ namespace BeautyBuzz
             {
                 MessageBox.Show("Parolele nu se potrivesc. Introduceți aceeași parolă în ambele câmpuri.");
             }
+        }
+
+        private void ResetPass_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

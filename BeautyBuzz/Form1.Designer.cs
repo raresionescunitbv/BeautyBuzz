@@ -54,7 +54,7 @@
             textCreateAc1.Location = new Point(680, 135);
             textCreateAc1.Margin = new Padding(3, 2, 3, 2);
             textCreateAc1.Name = "textCreateAc1";
-            textCreateAc1.Size = new Size(213, 22);
+            textCreateAc1.Size = new Size(213, 19);
             textCreateAc1.TabIndex = 0;
             textCreateAc1.TextChanged += textBox1_TextChanged;
             textCreateAc1.KeyDown += textCreateAc1_KeyDown;
@@ -66,7 +66,7 @@
             label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(674, 80);
             label1.Name = "label1";
-            label1.Size = new Size(217, 38);
+            label1.Size = new Size(172, 30);
             label1.TabIndex = 1;
             label1.Text = "Create Account";
             // 
@@ -77,7 +77,7 @@
             CreateAcName.Location = new Point(557, 138);
             CreateAcName.Margin = new Padding(5, 0, 5, 0);
             CreateAcName.Name = "CreateAcName";
-            CreateAcName.Size = new Size(100, 16);
+            CreateAcName.Size = new Size(80, 13);
             CreateAcName.TabIndex = 3;
             CreateAcName.Text = "Your LastName";
             // 
@@ -87,7 +87,7 @@
             FirstNameCreateAc.Location = new Point(557, 195);
             FirstNameCreateAc.Margin = new Padding(5, 0, 5, 0);
             FirstNameCreateAc.Name = "FirstNameCreateAc";
-            FirstNameCreateAc.Size = new Size(100, 16);
+            FirstNameCreateAc.Size = new Size(79, 13);
             FirstNameCreateAc.TabIndex = 5;
             FirstNameCreateAc.Text = "Your FirstName";
             // 
@@ -96,7 +96,7 @@
             textBoxCreateAc2.Location = new Point(680, 192);
             textBoxCreateAc2.Margin = new Padding(3, 2, 3, 2);
             textBoxCreateAc2.Name = "textBoxCreateAc2";
-            textBoxCreateAc2.Size = new Size(213, 22);
+            textBoxCreateAc2.Size = new Size(213, 19);
             textBoxCreateAc2.TabIndex = 1;
             textBoxCreateAc2.KeyDown += textBoxCreateAc2_KeyDown;
             textBoxCreateAc2.KeyPress += textBoxCreateAc2_KeyPress;
@@ -108,7 +108,7 @@
             checkBox1.Location = new Point(654, 239);
             checkBox1.Margin = new Padding(5, 4, 5, 4);
             checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(18, 17);
+            checkBox1.Size = new Size(15, 14);
             checkBox1.TabIndex = 2;
             checkBox1.UseVisualStyleBackColor = true;
             checkBox1.CheckedChanged += checkBox_CheckedChanged;
@@ -120,7 +120,7 @@
             PhoneNumber.Location = new Point(676, 239);
             PhoneNumber.Margin = new Padding(5, 0, 5, 0);
             PhoneNumber.Name = "PhoneNumber";
-            PhoneNumber.Size = new Size(97, 16);
+            PhoneNumber.Size = new Size(78, 13);
             PhoneNumber.TabIndex = 2;
             PhoneNumber.Text = "Phone Number";
             PhoneNumber.Click += label2_Click;
@@ -131,7 +131,7 @@
             Email.Location = new Point(853, 239);
             Email.Margin = new Padding(5, 0, 5, 0);
             Email.Name = "Email";
-            Email.Size = new Size(41, 16);
+            Email.Size = new Size(32, 13);
             Email.TabIndex = 8;
             Email.Text = "Email";
             // 
@@ -142,7 +142,7 @@
             checkBox2.Location = new Point(824, 239);
             checkBox2.Margin = new Padding(5, 4, 5, 4);
             checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(18, 17);
+            checkBox2.Size = new Size(15, 14);
             checkBox2.TabIndex = 3;
             checkBox2.UseVisualStyleBackColor = true;
             checkBox2.CheckedChanged += checkBox_CheckedChanged;
@@ -154,7 +154,7 @@
             or.Location = new Point(783, 239);
             or.Margin = new Padding(5, 0, 5, 0);
             or.Name = "or";
-            or.Size = new Size(19, 16);
+            or.Size = new Size(16, 13);
             or.TabIndex = 10;
             or.Text = "or";
             // 
@@ -163,7 +163,7 @@
             textBox1.Location = new Point(680, 396);
             textBox1.Margin = new Padding(5, 4, 5, 4);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(215, 22);
+            textBox1.Size = new Size(215, 19);
             textBox1.TabIndex = 5;
             textBox1.TextChanged += textBox1_TextChanged_1;
             textBox1.KeyDown += textBox1_KeyDown;
@@ -174,7 +174,7 @@
             Password.Location = new Point(557, 399);
             Password.Margin = new Padding(5, 0, 5, 0);
             Password.Name = "Password";
-            Password.Size = new Size(67, 16);
+            Password.Size = new Size(53, 13);
             Password.TabIndex = 14;
             Password.Text = "Password";
             // 
@@ -185,7 +185,7 @@
             ConfirmPassword.Location = new Point(557, 443);
             ConfirmPassword.Margin = new Padding(5, 0, 5, 0);
             ConfirmPassword.Name = "ConfirmPassword";
-            ConfirmPassword.Size = new Size(115, 16);
+            ConfirmPassword.Size = new Size(91, 13);
             ConfirmPassword.TabIndex = 16;
             ConfirmPassword.Text = "Confirm Password";
             // 
@@ -194,7 +194,7 @@
             textBox2.Location = new Point(680, 437);
             textBox2.Margin = new Padding(5, 4, 5, 4);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(215, 22);
+            textBox2.Size = new Size(215, 19);
             textBox2.TabIndex = 7;
             textBox2.TextChanged += textBox2_TextChanged;
             textBox2.KeyDown += textBox2_KeyDown;
@@ -218,7 +218,7 @@
             showPass.Cursor = Cursors.Hand;
             showPass.Location = new Point(921, 396);
             showPass.Name = "showPass";
-            showPass.Size = new Size(125, 20);
+            showPass.Size = new Size(102, 17);
             showPass.TabIndex = 6;
             showPass.Text = "Show Password";
             showPass.UseVisualStyleBackColor = true;
@@ -230,7 +230,7 @@
             textBoxInput.Location = new Point(678, 307);
             textBoxInput.Margin = new Padding(3, 2, 3, 2);
             textBoxInput.Name = "textBoxInput";
-            textBoxInput.Size = new Size(213, 22);
+            textBoxInput.Size = new Size(213, 19);
             textBoxInput.TabIndex = 4;
             textBoxInput.KeyDown += textInput_KeyDown;
             textBoxInput.KeyPress += textBoxInput_KeyPress;
@@ -248,7 +248,7 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 16F);
+            AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1200, 665);
