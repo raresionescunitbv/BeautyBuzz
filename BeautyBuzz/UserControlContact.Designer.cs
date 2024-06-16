@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -85,23 +86,48 @@
             btn_control_echipa.TabIndex = 2;
             btn_control_echipa.Text = "Vino in echipa BeautyBuzz";
             btn_control_echipa.Click += btn_control_echipa_Click;
+=======
+            guna2RadialGauge1 = new Guna.UI2.WinForms.Guna2RadialGauge();
+            SuspendLayout();
+            // 
+            // guna2RadialGauge1
+            // 
+            guna2RadialGauge1.Font = new Font("Verdana", 8.2F);
+            guna2RadialGauge1.ForeColor = Color.FromArgb(139, 152, 166);
+            guna2RadialGauge1.Location = new Point(300, 220);
+            guna2RadialGauge1.MinimumSize = new Size(30, 30);
+            guna2RadialGauge1.Name = "guna2RadialGauge1";
+            guna2RadialGauge1.Size = new Size(240, 240);
+            guna2RadialGauge1.TabIndex = 0;
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
             // 
             // UserControlContact
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+<<<<<<< HEAD
             Controls.Add(btn_control_detalii);
             Controls.Add(btn_control_echipa);
             Controls.Add(panelControl2);
             Name = "UserControlContact";
             Size = new Size(850, 667);
             Load += UserControlContact_Load;
+=======
+            Controls.Add(guna2RadialGauge1);
+            Name = "UserControlContact";
+            Size = new Size(850, 667);
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
             ResumeLayout(false);
         }
 
         #endregion
+<<<<<<< HEAD
         private Guna.UI2.WinForms.Guna2Button btn_control_detalii;
         private Guna.UI2.WinForms.Guna2Button btn_control_echipa;
         public Panel panelControl2;
+=======
+
+        private Guna.UI2.WinForms.Guna2RadialGauge guna2RadialGauge1;
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
     }
 }

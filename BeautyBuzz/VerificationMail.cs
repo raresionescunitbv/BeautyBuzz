@@ -41,8 +41,11 @@ namespace BeautyBuzz
             this.userPassword = userPassword;
             this.mail = mail;
             this.confirmPassword = confirmPassword;
+<<<<<<< HEAD
 
             VerificationCode.Text = mail;
+=======
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
         }
 
         private void VerificationButton_Click(object sender, EventArgs e)
@@ -174,6 +177,7 @@ namespace BeautyBuzz
 
         private void VerificationMail_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             pictureBox1.BackColor = Color.Transparent;
 
         }
@@ -186,3 +190,9 @@ namespace BeautyBuzz
         }
     }
 }
+=======
+
+        }
+    }
+}
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f

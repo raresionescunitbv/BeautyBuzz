@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -181,10 +182,90 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
+=======
+            this.ConfirmationButtonNumber = new System.Windows.Forms.Button();
+            this.ConfirmCodeNumber = new System.Windows.Forms.TextBox();
+            this.ConfirmationCodeNumber = new System.Windows.Forms.Label();
+            this.VerificationButtonNumber = new System.Windows.Forms.Button();
+            this.VerificationCodeNumber = new System.Windows.Forms.TextBox();
+            this.labelVfNumar = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // ConfirmationButtonNumber
+            // 
+            this.ConfirmationButtonNumber.Location = new System.Drawing.Point(399, 158);
+            this.ConfirmationButtonNumber.Name = "ConfirmationButtonNumber";
+            this.ConfirmationButtonNumber.Size = new System.Drawing.Size(75, 23);
+            this.ConfirmationButtonNumber.TabIndex = 11;
+            this.ConfirmationButtonNumber.Text = "Confirm";
+            this.ConfirmationButtonNumber.UseVisualStyleBackColor = true;
+            this.ConfirmationButtonNumber.Click += new System.EventHandler(this.ConfirmationButtonNumber_Click);
+            // 
+            // ConfirmCodeNumber
+            // 
+            this.ConfirmCodeNumber.Location = new System.Drawing.Point(280, 130);
+            this.ConfirmCodeNumber.Name = "ConfirmCodeNumber";
+            this.ConfirmCodeNumber.Size = new System.Drawing.Size(194, 22);
+            this.ConfirmCodeNumber.TabIndex = 10;
+            // 
+            // ConfirmationCodeNumber
+            // 
+            this.ConfirmationCodeNumber.AutoSize = true;
+            this.ConfirmationCodeNumber.Location = new System.Drawing.Point(116, 133);
+            this.ConfirmationCodeNumber.Name = "ConfirmationCodeNumber";
+            this.ConfirmationCodeNumber.Size = new System.Drawing.Size(102, 16);
+            this.ConfirmationCodeNumber.TabIndex = 9;
+            this.ConfirmationCodeNumber.Text = "Confirmati codul";
+            // 
+            // VerificationButtonNumber
+            // 
+            this.VerificationButtonNumber.Location = new System.Drawing.Point(399, 76);
+            this.VerificationButtonNumber.Name = "VerificationButtonNumber";
+            this.VerificationButtonNumber.Size = new System.Drawing.Size(75, 23);
+            this.VerificationButtonNumber.TabIndex = 8;
+            this.VerificationButtonNumber.Text = "Send";
+            this.VerificationButtonNumber.UseVisualStyleBackColor = true;
+            this.VerificationButtonNumber.Click += new System.EventHandler(this.VerificationButtonNumber_Click);
+            // 
+            // VerificationCodeNumber
+            // 
+            this.VerificationCodeNumber.Location = new System.Drawing.Point(280, 48);
+            this.VerificationCodeNumber.Name = "VerificationCodeNumber";
+            this.VerificationCodeNumber.Size = new System.Drawing.Size(194, 22);
+            this.VerificationCodeNumber.TabIndex = 7;
+            // 
+            // labelVfNumar
+            // 
+            this.labelVfNumar.AutoSize = true;
+            this.labelVfNumar.Location = new System.Drawing.Point(116, 51);
+            this.labelVfNumar.Name = "labelVfNumar";
+            this.labelVfNumar.Size = new System.Drawing.Size(136, 16);
+            this.labelVfNumar.TabIndex = 6;
+            this.labelVfNumar.Text = "Reintroduceti numarul";
+            // 
+            // SmsVerificationApp
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(656, 207);
+            this.Controls.Add(this.ConfirmationButtonNumber);
+            this.Controls.Add(this.ConfirmCodeNumber);
+            this.Controls.Add(this.ConfirmationCodeNumber);
+            this.Controls.Add(this.VerificationButtonNumber);
+            this.Controls.Add(this.VerificationCodeNumber);
+            this.Controls.Add(this.labelVfNumar);
+            this.Name = "SmsVerificationApp";
+            this.Text = "SmsVerificationApp";
+            this.Load += new System.EventHandler(this.SmsVerificationApp_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
         }
 
         #endregion
 
+<<<<<<< HEAD
         private Guna.UI2.WinForms.Guna2Button ConfirmationButtonNumber;
         private Guna.UI2.WinForms.Guna2TextBox ConfirmCodeNumber;
         private Guna.UI2.WinForms.Guna2Button VerificationButtonNumber;
@@ -192,5 +273,13 @@
         private Label ConfirmationCodeNumber;
         private Label labelVfNumar;
         private PictureBox pictureBox1;
+=======
+        private System.Windows.Forms.Button ConfirmationButtonNumber;
+        private System.Windows.Forms.TextBox ConfirmCodeNumber;
+        private System.Windows.Forms.Label ConfirmationCodeNumber;
+        private System.Windows.Forms.Button VerificationButtonNumber;
+        private System.Windows.Forms.TextBox VerificationCodeNumber;
+        private System.Windows.Forms.Label labelVfNumar;
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
     }
 }

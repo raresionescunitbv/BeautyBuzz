@@ -12,14 +12,20 @@ using System.Windows.Forms;
 using System.Net;
 using System.Net.Mail;
 using Twilio.Types;
+<<<<<<< HEAD
 using System.Drawing;
 using System.Drawing.Drawing2D;
+=======
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
 
 
 namespace BeautyBuzz
 {
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
     public partial class Form1 : Form
     {
 
@@ -31,12 +37,18 @@ namespace BeautyBuzz
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
             label1.BackColor = Color.Transparent;
             CreateAcName.BackColor = Color.Transparent;
             FirstNameCreateAc.BackColor = Color.Transparent;
@@ -46,6 +58,7 @@ namespace BeautyBuzz
             showPass.BackColor = Color.Transparent;
             ConfirmPassword.BackColor = Color.Transparent;
             or.BackColor = Color.Transparent;
+<<<<<<< HEAD
             textCreateAc1.BackColor = Color.Transparent;
             textBoxCreateAc2.BackColor = Color.Transparent;
             textBoxInput.BackColor = Color.Transparent;
@@ -54,6 +67,9 @@ namespace BeautyBuzz
             SignUp.BackColor = Color.Transparent;
             button1.BackColor = Color.Transparent;
             pictureBox1.BackColor = Color.Transparent;
+=======
+
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
         }
         private void AddRequiredLabels()
         {
@@ -127,7 +143,11 @@ namespace BeautyBuzz
             }
         }
 
+<<<<<<< HEAD
         private void ConvertFirstLetterToUpperCase(Guna.UI2.WinForms.Guna2TextBox textBox, KeyEventArgs e)
+=======
+        private void ConvertFirstLetterToUpperCase(TextBox textBox, KeyEventArgs e)
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
         {
             if (char.IsLetter((char)e.KeyCode))
             {
@@ -174,8 +194,12 @@ namespace BeautyBuzz
                 ConvertFirstLetterToUpperCase(textBoxCreateAc2, e);
             }
         }
+<<<<<<< HEAD
 
         private void CheckForDigits(Guna.UI2.WinForms.Guna2TextBox textBox, KeyPressEventArgs e)
+=======
+        private void CheckForDigits(TextBox textBox, KeyPressEventArgs e)
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
         {
             if (char.IsDigit(e.KeyChar))
             {
@@ -183,12 +207,18 @@ namespace BeautyBuzz
                 e.Handled = true;
             }
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
         private void textCreateAc1_KeyPress(object sender, KeyPressEventArgs e)
         {
             CheckForDigits(textCreateAc1, e);
         }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
         private void textBoxCreateAc2_KeyPress(object sender, KeyPressEventArgs e)
         {
             CheckForDigits(textBoxCreateAc2, e);
@@ -296,7 +326,11 @@ namespace BeautyBuzz
         int vCode = 1000;
         private void SignUp_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
            
+=======
+            // Verificăm dacă toate câmpurile sunt completate
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
             if (!AreAllTextBoxesFilled())
             {
                 MessageBox.Show("Toate câmpurile trebuie completate pentru a continua!", "Eroare");
@@ -314,7 +348,10 @@ namespace BeautyBuzz
             else if (checkBox2.Checked)
             {
                 contactInfo = textBoxInput.Text;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
                 if (!IsValidEmail(contactInfo))
                 {
                     MessageBox.Show("Adresa de e-mail introdusă nu este validă!", "Eroare");
@@ -512,6 +549,7 @@ namespace BeautyBuzz
             back.Show();
             this.Hide();
         }
+<<<<<<< HEAD
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -519,5 +557,7 @@ namespace BeautyBuzz
             back.Show();
             this.Hide();
         }
+=======
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
     }
 }

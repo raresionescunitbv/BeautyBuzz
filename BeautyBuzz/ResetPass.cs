@@ -24,9 +24,12 @@ namespace BeautyBuzz
         {
             InitializeComponent();
             this.username = username;
+<<<<<<< HEAD
 
             textBoxNewPass.UseSystemPasswordChar = true;
             textBoxConfirmNewPass.UseSystemPasswordChar = true;
+=======
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
         }
 
         private void submitNewPass_Click(object sender, EventArgs e)
@@ -36,7 +39,10 @@ namespace BeautyBuzz
             if (textBoxNewPass.Text == newPass)
             {
                 try
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
                 {
                     // Folosește clasa SingleTon pentru a obține conexiunea la baza de date
                     using (SqlConnection conn = singleTon.GetConnection())
@@ -51,7 +57,12 @@ namespace BeautyBuzz
                     MessageBox.Show("Parola a fost resetată cu succes!");
 
                     // Redirecționați utilizatorul către formularul de autentificare
+<<<<<<< HEAD
                
+=======
+                    BeautyBuzz loginForm = new BeautyBuzz();
+                    loginForm.Show();
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
                     this.Hide();
                 }
                 catch (SqlException ex)
@@ -69,6 +80,7 @@ namespace BeautyBuzz
         {
 
         }
+<<<<<<< HEAD
         private void guna2CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
             textBoxNewPass.UseSystemPasswordChar = !guna2CheckBox1.Checked;
@@ -87,5 +99,7 @@ namespace BeautyBuzz
         {
             throw new NotImplementedException();
         }
+=======
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
     }
 }

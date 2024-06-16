@@ -7,12 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+<<<<<<< HEAD
 using Microsoft.Data.SqlClient;
+=======
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
 
 namespace BeautyBuzz
 {
     public partial class UserControlProgramari : UserControl
     {
+<<<<<<< HEAD
         private string emailAddress;
         public UserControlProgramari(string emailAddress)
         {
@@ -162,3 +166,11 @@ namespace BeautyBuzz
 
     }
 }
+=======
+        public UserControlProgramari()
+        {
+            InitializeComponent();
+        }
+    }
+}
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f

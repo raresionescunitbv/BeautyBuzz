@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ResetPass));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -164,13 +165,71 @@
             NewResetPass.TabIndex = 10;
             NewResetPass.Text = "Noua Parola";
             // 
+=======
+            NewResetPass = new Label();
+            ConfirmNewPass = new Label();
+            textBoxNewPass = new TextBox();
+            textBoxConfirmNewPass = new TextBox();
+            submitNewPass = new Button();
+            SuspendLayout();
+            // 
+            // NewResetPass
+            // 
+            NewResetPass.AutoSize = true;
+            NewResetPass.Location = new Point(75, 44);
+            NewResetPass.Name = "NewResetPass";
+            NewResetPass.Size = new Size(72, 15);
+            NewResetPass.TabIndex = 0;
+            NewResetPass.Text = "Noua Parola";
+            // 
+            // ConfirmNewPass
+            // 
+            ConfirmNewPass.AutoSize = true;
+            ConfirmNewPass.Location = new Point(75, 95);
+            ConfirmNewPass.Name = "ConfirmNewPass";
+            ConfirmNewPass.Size = new Size(64, 15);
+            ConfirmNewPass.TabIndex = 1;
+            ConfirmNewPass.Text = "Confirmati";
+            // 
+            // textBoxNewPass
+            // 
+            textBoxNewPass.Location = new Point(169, 42);
+            textBoxNewPass.Margin = new Padding(3, 2, 3, 2);
+            textBoxNewPass.Name = "textBoxNewPass";
+            textBoxNewPass.Size = new Size(197, 23);
+            textBoxNewPass.TabIndex = 2;
+            // 
+            // textBoxConfirmNewPass
+            // 
+            textBoxConfirmNewPass.Location = new Point(169, 93);
+            textBoxConfirmNewPass.Margin = new Padding(3, 2, 3, 2);
+            textBoxConfirmNewPass.Name = "textBoxConfirmNewPass";
+            textBoxConfirmNewPass.Size = new Size(197, 23);
+            textBoxConfirmNewPass.TabIndex = 3;
+            // 
+            // submitNewPass
+            // 
+            submitNewPass.Location = new Point(284, 130);
+            submitNewPass.Margin = new Padding(3, 2, 3, 2);
+            submitNewPass.Name = "submitNewPass";
+            submitNewPass.Size = new Size(82, 22);
+            submitNewPass.TabIndex = 4;
+            submitNewPass.Text = "reset";
+            submitNewPass.UseVisualStyleBackColor = true;
+            submitNewPass.Click += submitNewPass_Click;
+            // 
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
             // ResetPass
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+<<<<<<< HEAD
             ClientSize = new Size(478, 189);
             Controls.Add(pictureBox1);
             Controls.Add(guna2CheckBox1);
+=======
+            ClientSize = new Size(460, 198);
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
             Controls.Add(submitNewPass);
             Controls.Add(textBoxConfirmNewPass);
             Controls.Add(textBoxNewPass);
@@ -178,16 +237,22 @@
             Controls.Add(NewResetPass);
             Margin = new Padding(3, 2, 3, 2);
             Name = "ResetPass";
+<<<<<<< HEAD
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ResetPass";
             Load += ResetPass_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+=======
+            Text = "ResetPass";
+            Load += ResetPass_Load;
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
+<<<<<<< HEAD
         private PictureBox pictureBox1;
         private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox1;
         private Guna.UI2.WinForms.Guna2Button submitNewPass;
@@ -195,5 +260,12 @@
         private Guna.UI2.WinForms.Guna2TextBox textBoxNewPass;
         private Label ConfirmNewPass;
         private Label NewResetPass;
+=======
+        private Label NewResetPass;
+        private Label ConfirmNewPass;
+        private TextBox textBoxNewPass;
+        private TextBox textBoxConfirmNewPass;
+        private Button submitNewPass;
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
     }
 }

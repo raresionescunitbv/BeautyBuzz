@@ -15,15 +15,19 @@ namespace BeautyBuzz
         private string emailAddress;
         private string nume_salon;
         private string nume_angajat;
+<<<<<<< HEAD
 
         public string SelectedCity { get; private set; }
 
+=======
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
         public UserControlAll(string emailAddress, string nume_salon, string nume_angajat)
         {
             InitializeComponent();
             this.emailAddress = emailAddress;
             this.nume_salon = nume_salon;
             this.nume_angajat = nume_angajat;
+<<<<<<< HEAD
             comboBox1.SelectedIndexChanged += ComboBox1_SelectedIndexChanged;
         }
 
@@ -46,11 +50,22 @@ namespace BeautyBuzz
         }
 
 
+=======
+        }
+
+        private void label_Masaj_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Menu menuForm = this.ParentForm as Menu;
             if (menuForm != null)
             {
+<<<<<<< HEAD
                 string tableName = "ANGAJATI";
                 OpenUserControlAcasa(tableName);
             }
@@ -89,11 +104,31 @@ namespace BeautyBuzz
                     menuForm.addUserControl(uc);
                 }
             }
+=======
+                UserControlAcasa uc = new UserControlAcasa(emailAddress,nume_salon, nume_angajat);
+                menuForm.addUserControl(uc);
+            }
+        }
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
         }
 
         private void UserControlAll_Load(object sender, EventArgs e)
         {
             guna2TextBox1.ReadOnly = true;
+<<<<<<< HEAD
             guna2TextBox2.ReadOnly = true;
             comboBox1.Items.Clear();
             comboBox1.Items.AddRange(new object[] { "Alba Iulia", "Alexandria", "Arad", "Arges", "Azuga", "Baicoi", "Bacau", "Baia Mare", "Bistrita", "Botosani", "Braila", "Brasov", "Bucuresti", "Buzau", "Budeasa", "Calarasi", "Cluj-Napoca", "Constanta", "Craiova", "Curtea de Arges", "Deva", "Drobeta -Turnu Severin", "Fagaras", "Focsani", "Galati", "Giurgiu", "Hunedoara", "Iasi", "Lugoj", "Miercurea Ciuc", "Medgidia", "Medias", "Oradea", "Piatra Neamt", "Pitesti", "Ploiesti", "Ramnicu Valcea", "Resita", "Satu Mare", "Sfantu Gheorghe", "Sibiu", "Slatina", "Sighisoara", "Slobozia", "Suceava", "Targoviste", "Targu Jiu", "Targu Mures", "Timisoara", "Tulcea", "Tecuci", "Vaslui", "Valenii de Munte", "Zalau", "Zarnesti" });
@@ -151,5 +186,10 @@ namespace BeautyBuzz
                 OpenUserControlAcasa(tableName);
             }
         }
+=======
+        }
+
+      
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
@@ -123,11 +124,50 @@
             Load += UserControlProgramari_Load_1;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
+=======
+            listBox1 = new ListBox();
+            label1 = new Label();
+            SuspendLayout();
+            // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 15;
+            listBox1.Location = new Point(262, 293);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(120, 94);
+            listBox1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(407, 422);
+            label1.Name = "label1";
+            label1.Size = new Size(38, 15);
+            label1.TabIndex = 1;
+            label1.Text = "label1";
+            // 
+            // UserControlProgramari
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(label1);
+            Controls.Add(listBox1);
+            Name = "UserControlProgramari";
+            Size = new Size(850, 667);
+            ResumeLayout(false);
+            PerformLayout();
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
         }
 
         #endregion
 
+<<<<<<< HEAD
         private Guna.UI2.WinForms.Guna2DataGridView dataGridView1;
         private Guna.UI2.WinForms.Guna2GradientButton buttonAnuleaza;
+=======
+        private ListBox listBox1;
+        private Label label1;
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
     }
 }

@@ -1,20 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+<<<<<<< HEAD
 using System.Net.Mail;
 using System.Net;
+=======
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
 using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+<<<<<<< HEAD
 using System.Configuration;
 
+=======
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
 namespace BeautyBuzz
 {
     public partial class UserControlCalendar : Form
     {
         private SingleTon singleTon = SingleTon.Instance;
 
+<<<<<<< HEAD
         public string emailAddress;
         public string nume_salon;
         public string nume_angajat;
@@ -66,11 +73,33 @@ namespace BeautyBuzz
                     // Poți adăuga o acțiune implicită pentru a trata cazurile care nu sunt acoperite mai sus
                     break;
             }
+=======
+        // public string Textbox1Value { get; set; }
+        // public string UserEmail { get; set; }
+        public string emailAddress;
+        public string nume_salon;
+        public string nume_angajat;
+
+
+        public UserControlCalendar(string emailAddress)
+        {
+            InitializeComponent();
+
+            // Asociem evenimentul DateChanged al monthCalendar1 cu metoda monthCalendar1_DateChanged
+            monthCalendar1.DateChanged += monthCalendar1_DateChanged;
+            // Asociem evenimentul Click al butonului SaveDataButton cu metoda SaveDataButton_Click
+
+            // Configurare ComboBox
+            comboBoxOre.DropDownStyle = ComboBoxStyle.DropDown;
+            comboBoxOre.AutoCompleteMode = AutoCompleteMode.Suggest;
+            this.emailAddress = emailAddress;
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
         }
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
             DateTime selectedDate = monthCalendar1.SelectionStart;
+<<<<<<< HEAD
 
             if (selectedDate < DateTime.Today)
             {
@@ -113,12 +142,34 @@ namespace BeautyBuzz
                         availableTimes.Add(currentHour.ToString("HH:mm"));
                     }
                 }
+=======
+            List<string> availableTimes = GetAvailableTimes(selectedDate);
+            PopulateComboBoxOre(availableTimes);
+        }
+
+        private List<string> GetAvailableTimes(DateTime date)
+        {
+            List<string> availableTimes = new List<string>();
+
+            // Adăugăm orele disponibile, de la 09:00 la 21:00, cu excluderea orei de prânz
+            DateTime currentHour = new DateTime(date.Year, date.Month, date.Day, 9, 0, 0);
+            DateTime endHour = new DateTime(date.Year, date.Month, date.Day, 21, 0, 0);
+            while (currentHour <= endHour)
+            {
+                // Excludem ora de prânz
+                if (currentHour.Hour != 12)
+                {
+                    availableTimes.Add(currentHour.ToString("HH:mm"));
+                }
+                // Adăugăm 30 de minute
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
                 currentHour = currentHour.AddMinutes(30);
             }
 
             return availableTimes;
         }
 
+<<<<<<< HEAD
         private bool IsTimeSlotAvailable(DateTime timeSlot, string numeAngajat)
         {
             try
@@ -146,6 +197,8 @@ namespace BeautyBuzz
             }
         }
 
+=======
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
         private void PopulateComboBoxOre(List<string> availableTimes)
         {
             comboBoxOre.Items.Clear();
@@ -158,7 +211,11 @@ namespace BeautyBuzz
             }
             else
             {
+<<<<<<< HEAD
                 comboBoxOre.Items.Add("Liber!");
+=======
+                comboBoxOre.Items.Add("Nu sunt ore disponibile");
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
             }
         }
 
@@ -166,7 +223,12 @@ namespace BeautyBuzz
         {
             try
             {
+<<<<<<< HEAD
                 string username = emailAddress;
+=======
+
+                string username = emailAddress; // Utilizăm adresa de e-mail stocată în proprietatea UserEmail
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
                 string numeSalon = nume_salon;
                 string numeAngajat = nume_angajat;
                 if (string.IsNullOrEmpty(username))
@@ -180,6 +242,11 @@ namespace BeautyBuzz
                     MessageBox.Show("Adresa de e-mail nu a putut fi găsită.");
                     return;
                 }
+<<<<<<< HEAD
+=======
+                string salonName = GetSalonNameFromAngajati(numeSalon);
+                string angajatName = GetAngajatNameFromAngajati(numeAngajat);
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
                 DateTime selectedDate = monthCalendar1.SelectionStart;
                 string selectedTime = comboBoxOre.Text;
 
@@ -189,14 +256,22 @@ namespace BeautyBuzz
                             VALUES (@Mail, @Nume_Salon, @Nume_Angajat, @Data, @Ora)";
                 SqlCommand cmd = new SqlCommand(query, singleTon.GetConnection());
                 cmd.Parameters.AddWithValue("@Mail", email);
+<<<<<<< HEAD
                 cmd.Parameters.AddWithValue("@Nume_Salon", numeSalon);
                 cmd.Parameters.AddWithValue("@Nume_Angajat", numeAngajat);
+=======
+                cmd.Parameters.AddWithValue("@Nume_Salon", salonName);
+                cmd.Parameters.AddWithValue("@Nume_Angajat", angajatName);
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
                 cmd.Parameters.AddWithValue("@Data", selectedDate);
                 cmd.Parameters.AddWithValue("@Ora", selectedTime);
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Programarea a fost înregistrată cu succes!");
+<<<<<<< HEAD
                 SendConfirmationEmail(email);
+=======
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
             }
             catch (SqlException ex)
             {
@@ -207,6 +282,7 @@ namespace BeautyBuzz
                 singleTon.GetConnection().Close();
             }
         }
+<<<<<<< HEAD
         private void SendConfirmationEmail(string emailAddress)
         {
             try
@@ -234,6 +310,8 @@ namespace BeautyBuzz
             }
         }
 
+=======
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
 
         private string GetEmailFromTable2(string username)
         {
@@ -270,7 +348,11 @@ namespace BeautyBuzz
 
                 string querysalonName = "SELECT Nume_Salon FROM ANGAJATI WHERE Nume_Salon = @Nume_Salon";
                 SqlCommand cmdSalon = new SqlCommand(querysalonName, singleTon.GetConnection());
+<<<<<<< HEAD
                 cmdSalon.Parameters.AddWithValue("@Nume_Salon", nume_Salon);
+=======
+                cmdSalon.Parameters.AddWithValue("@Nume_Salon", nume_Salon); 
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
                 salonName = (string)cmdSalon.ExecuteScalar();
             }
             catch (SqlException ex)
@@ -293,7 +375,11 @@ namespace BeautyBuzz
             {
                 singleTon.GetConnection().Open();
 
+<<<<<<< HEAD
                 string queryangajatName = $"SELECT Nume_Angajat FROM ANGAJATI WHERE Nume_Angajat = @Nume_Angajat";
+=======
+                string queryangajatName = "SELECT Nume_Angajat FROM ANGAJATI WHERE Nume_Angajat = @Nume_Angajat";
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
                 SqlCommand cmdAngajat = new SqlCommand(queryangajatName, singleTon.GetConnection());
                 cmdAngajat.Parameters.AddWithValue("@Nume_Angajat", nume_angajat);
                 angajatName = (string)cmdAngajat.ExecuteScalar();
@@ -310,6 +396,7 @@ namespace BeautyBuzz
             return angajatName;
         }
 
+<<<<<<< HEAD
         private string GetSalonNameFromFrizerie(string nume_Salon)
         {
             string salonName = "";
@@ -658,3 +745,11 @@ namespace BeautyBuzz
 
 
 }
+=======
+        private void UserControlCalendar_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f

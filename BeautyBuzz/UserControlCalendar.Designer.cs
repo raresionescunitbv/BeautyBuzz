@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -145,15 +146,66 @@
             Controls.Add(monthCalendar1);
             Name = "UserControlCalendar";
             StartPosition = FormStartPosition.CenterScreen;
+=======
+            monthCalendar1 = new MonthCalendar();
+            comboBoxOre = new ComboBox();
+            SaveDataButton = new Button();
+            SuspendLayout();
+            // 
+            // monthCalendar1
+            // 
+            monthCalendar1.Location = new Point(249, 103);
+            monthCalendar1.Margin = new Padding(10, 12, 10, 12);
+            monthCalendar1.Name = "monthCalendar1";
+            monthCalendar1.TabIndex = 0;
+            // 
+            // comboBoxOre
+            // 
+            comboBoxOre.AutoCompleteMode = AutoCompleteMode.Suggest;
+            comboBoxOre.FormattingEnabled = true;
+            comboBoxOre.Location = new Point(522, 103);
+            comboBoxOre.Margin = new Padding(3, 4, 3, 4);
+            comboBoxOre.Name = "comboBoxOre";
+            comboBoxOre.Size = new Size(138, 28);
+            comboBoxOre.TabIndex = 1;
+            // 
+            // SaveDataButton
+            // 
+            SaveDataButton.Location = new Point(310, 335);
+            SaveDataButton.Margin = new Padding(3, 4, 3, 4);
+            SaveDataButton.Name = "SaveDataButton";
+            SaveDataButton.Size = new Size(144, 39);
+            SaveDataButton.TabIndex = 2;
+            SaveDataButton.Text = "Salveaza Data";
+            SaveDataButton.UseVisualStyleBackColor = true;
+            SaveDataButton.Click += SaveDataButton_Click_1;
+            // 
+            // UserControlCalendar
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(743, 521);
+            Controls.Add(SaveDataButton);
+            Controls.Add(comboBoxOre);
+            Controls.Add(monthCalendar1);
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "UserControlCalendar";
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
             Load += UserControlCalendar_Load;
             ResumeLayout(false);
         }
 
         #endregion
 
+<<<<<<< HEAD
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBoxProgramare;
         private Guna.UI2.WinForms.Guna2GradientButton SaveDataButton;
         private Guna.UI2.WinForms.Guna2ComboBox comboBoxOre;
         private MonthCalendar monthCalendar1;
+=======
+        private MonthCalendar monthCalendar1;
+        private ComboBox comboBoxOre;
+        private Button SaveDataButton;
+>>>>>>> 5ab7d3d0119d4a015ec2cdb03a9015950015917f
     }
 }
