@@ -28,31 +28,80 @@
         /// </summary>
         private void InitializeComponent()
         {
-            guna2RadialGauge1 = new Guna.UI2.WinForms.Guna2RadialGauge();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            panelControl2 = new Panel();
+            btn_control_detalii = new Guna.UI2.WinForms.Guna2Button();
+            btn_control_echipa = new Guna.UI2.WinForms.Guna2Button();
             SuspendLayout();
             // 
-            // guna2RadialGauge1
+            // panelControl2
             // 
-            guna2RadialGauge1.Font = new Font("Verdana", 8.2F);
-            guna2RadialGauge1.ForeColor = Color.FromArgb(139, 152, 166);
-            guna2RadialGauge1.Location = new Point(300, 220);
-            guna2RadialGauge1.MinimumSize = new Size(30, 30);
-            guna2RadialGauge1.Name = "guna2RadialGauge1";
-            guna2RadialGauge1.Size = new Size(240, 240);
-            guna2RadialGauge1.TabIndex = 0;
+            panelControl2.Location = new Point(0, 144);
+            panelControl2.Name = "panelControl2";
+            panelControl2.Size = new Size(850, 523);
+            panelControl2.TabIndex = 0;
+            // 
+            // btn_control_detalii
+            // 
+            btn_control_detalii.BorderColor = Color.Transparent;
+            btn_control_detalii.BorderRadius = 10;
+            btn_control_detalii.BorderThickness = 3;
+            btn_control_detalii.CustomizableEdges = customizableEdges1;
+            btn_control_detalii.DisabledState.BorderColor = Color.DarkGray;
+            btn_control_detalii.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_control_detalii.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_control_detalii.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_control_detalii.FillColor = Color.DodgerBlue;
+            btn_control_detalii.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
+            btn_control_detalii.ForeColor = Color.White;
+            btn_control_detalii.Location = new Point(423, 76);
+            btn_control_detalii.Name = "btn_control_detalii";
+            btn_control_detalii.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btn_control_detalii.Size = new Size(180, 45);
+            btn_control_detalii.TabIndex = 3;
+            btn_control_detalii.Text = "Suport tehnic";
+            btn_control_detalii.Click += btn_control_detalii_Click;
+            // 
+            // btn_control_echipa
+            // 
+            btn_control_echipa.BorderColor = Color.Transparent;
+            btn_control_echipa.BorderRadius = 10;
+            btn_control_echipa.BorderThickness = 3;
+            btn_control_echipa.CustomizableEdges = customizableEdges3;
+            btn_control_echipa.DisabledState.BorderColor = Color.DarkGray;
+            btn_control_echipa.DisabledState.CustomBorderColor = Color.DarkGray;
+            btn_control_echipa.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btn_control_echipa.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btn_control_echipa.FillColor = Color.DodgerBlue;
+            btn_control_echipa.Font = new Font("Century Gothic", 9F, FontStyle.Bold);
+            btn_control_echipa.ForeColor = Color.White;
+            btn_control_echipa.Location = new Point(190, 76);
+            btn_control_echipa.Name = "btn_control_echipa";
+            btn_control_echipa.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btn_control_echipa.Size = new Size(180, 45);
+            btn_control_echipa.TabIndex = 2;
+            btn_control_echipa.Text = "Vino in echipa BeautyBuzz";
+            btn_control_echipa.Click += btn_control_echipa_Click;
             // 
             // UserControlContact
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(guna2RadialGauge1);
+            Controls.Add(btn_control_detalii);
+            Controls.Add(btn_control_echipa);
+            Controls.Add(panelControl2);
             Name = "UserControlContact";
             Size = new Size(850, 667);
+            Load += UserControlContact_Load;
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2RadialGauge guna2RadialGauge1;
+        private Guna.UI2.WinForms.Guna2Button btn_control_detalii;
+        private Guna.UI2.WinForms.Guna2Button btn_control_echipa;
+        public Panel panelControl2;
     }
 }

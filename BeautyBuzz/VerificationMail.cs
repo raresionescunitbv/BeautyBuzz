@@ -41,6 +41,8 @@ namespace BeautyBuzz
             this.userPassword = userPassword;
             this.mail = mail;
             this.confirmPassword = confirmPassword;
+
+            VerificationCode.Text = mail;
         }
 
         private void VerificationButton_Click(object sender, EventArgs e)
@@ -172,7 +174,15 @@ namespace BeautyBuzz
 
         private void VerificationMail_Load(object sender, EventArgs e)
         {
+            pictureBox1.BackColor = Color.Transparent;
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Form1 back = new Form1();
+            back.Show();
+            this.Hide();
         }
     }
 }

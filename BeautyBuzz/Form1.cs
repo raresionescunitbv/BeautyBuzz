@@ -12,10 +12,14 @@ using System.Windows.Forms;
 using System.Net;
 using System.Net.Mail;
 using Twilio.Types;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 
 
 namespace BeautyBuzz
 {
+
+
     public partial class Form1 : Form
     {
 
@@ -27,10 +31,12 @@ namespace BeautyBuzz
 
 
 
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
             label1.BackColor = Color.Transparent;
             CreateAcName.BackColor = Color.Transparent;
             FirstNameCreateAc.BackColor = Color.Transparent;
@@ -40,7 +46,14 @@ namespace BeautyBuzz
             showPass.BackColor = Color.Transparent;
             ConfirmPassword.BackColor = Color.Transparent;
             or.BackColor = Color.Transparent;
-
+            textCreateAc1.BackColor = Color.Transparent;
+            textBoxCreateAc2.BackColor = Color.Transparent;
+            textBoxInput.BackColor = Color.Transparent;
+            textBox1.BackColor = Color.Transparent;
+            textBox2.BackColor = Color.Transparent;
+            SignUp.BackColor = Color.Transparent;
+            button1.BackColor = Color.Transparent;
+            pictureBox1.BackColor = Color.Transparent;
         }
         private void AddRequiredLabels()
         {
@@ -114,7 +127,7 @@ namespace BeautyBuzz
             }
         }
 
-        private void ConvertFirstLetterToUpperCase(TextBox textBox, KeyEventArgs e)
+        private void ConvertFirstLetterToUpperCase(Guna.UI2.WinForms.Guna2TextBox textBox, KeyEventArgs e)
         {
             if (char.IsLetter((char)e.KeyCode))
             {
@@ -161,7 +174,8 @@ namespace BeautyBuzz
                 ConvertFirstLetterToUpperCase(textBoxCreateAc2, e);
             }
         }
-        private void CheckForDigits(TextBox textBox, KeyPressEventArgs e)
+
+        private void CheckForDigits(Guna.UI2.WinForms.Guna2TextBox textBox, KeyPressEventArgs e)
         {
             if (char.IsDigit(e.KeyChar))
             {
@@ -169,10 +183,12 @@ namespace BeautyBuzz
                 e.Handled = true;
             }
         }
+
         private void textCreateAc1_KeyPress(object sender, KeyPressEventArgs e)
         {
             CheckForDigits(textCreateAc1, e);
         }
+
         private void textBoxCreateAc2_KeyPress(object sender, KeyPressEventArgs e)
         {
             CheckForDigits(textBoxCreateAc2, e);
@@ -280,7 +296,7 @@ namespace BeautyBuzz
         int vCode = 1000;
         private void SignUp_Click(object sender, EventArgs e)
         {
-            // Verificăm dacă toate câmpurile sunt completate
+           
             if (!AreAllTextBoxesFilled())
             {
                 MessageBox.Show("Toate câmpurile trebuie completate pentru a continua!", "Eroare");
@@ -298,6 +314,7 @@ namespace BeautyBuzz
             else if (checkBox2.Checked)
             {
                 contactInfo = textBoxInput.Text;
+
                 if (!IsValidEmail(contactInfo))
                 {
                     MessageBox.Show("Adresa de e-mail introdusă nu este validă!", "Eroare");
@@ -490,6 +507,13 @@ namespace BeautyBuzz
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            BeautyBuzz back = new BeautyBuzz();
+            back.Show();
+            this.Hide();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
             BeautyBuzz back = new BeautyBuzz();
             back.Show();

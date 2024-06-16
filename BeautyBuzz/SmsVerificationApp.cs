@@ -36,10 +36,13 @@ namespace BeautyBuzz
             twilioAccountSid = ConfigurationManager.AppSettings["TwilioAccountSid"];
             twilioAuthToken = ConfigurationManager.AppSettings["TwilioAuthToken"];
             twilioPhoneNumber = ConfigurationManager.AppSettings["TwilioPhoneNumber"];
+
+            VerificationCodeNumber.Text = phoneNumber;
         }
 
         private void SmsVerificationApp_Load(object sender, EventArgs e)
         {
+            pictureBox1.BackColor = Color.Transparent;
 
         }
 
@@ -125,6 +128,13 @@ namespace BeautyBuzz
             {
                 e.Cancel = true;
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Form1 back = new Form1();
+            back.Show();
+            this.Hide();
         }
     }
 }

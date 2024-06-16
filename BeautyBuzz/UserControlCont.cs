@@ -18,6 +18,7 @@ namespace BeautyBuzz
         {
             InitializeComponent();
             conn = singleTon.GetConnection();
+            //   pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage; // Set image to be centered
         }
 
         public UserControlCont(string emailAddress)
@@ -25,14 +26,13 @@ namespace BeautyBuzz
             InitializeComponent();
             conn = singleTon.GetConnection();
             this.emailAddress = emailAddress;
+            //  pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage; // Set image to be centered
         }
 
         public void SetEmail(string email)
         {
             this.emailAddress = email;
         }
-
- 
 
         private byte[] GetPhoto()
         {
@@ -54,50 +54,36 @@ namespace BeautyBuzz
             return imageData;
         }
 
-
-        // Method to load the image when the UserControl is loaded
-
-
-
-
         private void button1_Click_1(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog
             {
-                Filter = "All Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp|All files|*.*"
+                Filter = "All Image Files|.jpg;.jpeg;.png;.gif;.bmp|All files|.*"
             };
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 selectedImagePath = openFileDialog1.FileName;
-
-                pictureBox1.Image = Image.FromFile(selectedImagePath);
-
+                // pictureBox1.Image = Image.FromFile(selectedImagePath);
                 userImageBytes = GetPhoto();
             }
 
             try
             {
-                if (!string.IsNullOrEmpty(selectedImagePath)) // Verificați dacă a fost selectată o imagine
+                if (!string.IsNullOrEmpty(selectedImagePath))
                 {
                     conn.Open();
                     SqlCommand updateCmd = new SqlCommand("UPDATE Tabel2 SET Image = @Image WHERE Mail = @Mail", conn);
                     updateCmd.Parameters.Add("@Image", SqlDbType.VarBinary).Value = userImageBytes;
-
-                    // Utilizați adresa de e-mail stocată în emailAddress
                     updateCmd.Parameters.AddWithValue("@Mail", emailAddress);
 
                     if (updateCmd.ExecuteNonQuery() > 0)
                     {
-                        MessageBox.Show("Imagine actualizată cu succes.");
+                        MessageBox.Show("Image updated successfully.");
                     }
                     else
                     {
-                        MessageBox.Show("Nu s-au actualizat înregistrări. Verificați dacă condiția corespunde vreunei înregistrări.");
+                        MessageBox.Show("No records updated. Check if the condition matches any records.");
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Vă rugăm să selectați mai întâi o imagine.");
                 }
             }
             catch (Exception ex)
@@ -109,6 +95,7 @@ namespace BeautyBuzz
                 conn.Close();
             }
         }
+
         private void UserControlCont_Load_2(object sender, EventArgs e)
         {
             try
@@ -123,36 +110,27 @@ namespace BeautyBuzz
                 {
                     string firstName = reader["FirstName"].ToString();
                     string lastName = reader["LastName"].ToString();
-
                     label1.Text = firstName;
                     label2.Text = lastName;
 
-                    if (reader["Image"] != DBNull.Value) // Verifică dacă câmpul Image este NULL
+                    if (reader["Image"] != DBNull.Value)
                     {
                         byte[] imageData = (byte[])reader["Image"];
-                        if (imageData != null)
+                        using (MemoryStream ms = new MemoryStream(imageData))
                         {
-                            using (MemoryStream ms = new MemoryStream(imageData))
-                            {
-                                pictureBox1.Image = Image.FromStream(ms);
-                            }
-                        }
-                        else
-                        {
-                            pictureBox1.Image = null;
-                            MessageBox.Show("No image found for the user.");
+                            // pictureBox1.Image = Image.FromStream(ms);
                         }
                     }
                     else
                     {
-                        pictureBox1.Image = null;
-                        MessageBox.Show("No image found for the user.");
+                        // pictureBox1.Image = null;
+
                     }
                 }
                 else
                 {
-                    pictureBox1.Image = null;
-                    MessageBox.Show("No record found for the user.");
+                    //pictureBox1.Image = null;
+
                 }
             }
             catch (Exception ex)
@@ -164,12 +142,112 @@ namespace BeautyBuzz
                 conn.Close();
             }
         }
-        private void button3_Click(object sender, EventArgs e)
+
+        public event EventHandler CloseMenuWindow;
+
+
+
+        public void button3_Click(object sender, EventArgs e)
         {
+
+            this.Visible = false;
+            if (this.Parent is Menu)
+            {
+                this.Parent.Visible = false;
+            }
+
+
             BeautyBuzz beautyBuzz = new BeautyBuzz();
             beautyBuzz.Show();
-            this.Hide();
 
+
+            Form parentForm = this.FindForm();
+            if (parentForm != null)
+                parentForm.Hide();
+
+
+        }
+
+
+
+        private void addUserControl(DetaliiCont userControl)
+        {
+            userControl.Dock = DockStyle.Fill;
+            userControl.BringToFront();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            if (!string.IsNullOrEmpty(emailAddress))
+            {
+                DetaliiCont detalii_Cont = new DetaliiCont(emailAddress);
+                this.Parent.Controls.Add(detalii_Cont);
+                detalii_Cont.Show();
+            }
+            else
+            {
+                MessageBox.Show("Email address is not available.");
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            // Placeholder for any functionality
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            if (!string.IsNullOrEmpty(emailAddress))
+            {
+                Suport detalii_Cont = new Suport(emailAddress);
+                this.Parent.Controls.Add(detalii_Cont);
+                detalii_Cont.Show();
+            }
+            else
+            {
+                MessageBox.Show("Email address is not available.");
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            // Placeholder for any functionality
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            if (!string.IsNullOrEmpty(emailAddress))
+            {
+                ProdProf detalii_Cont = new ProdProf(emailAddress);
+                this.Parent.Controls.Add(detalii_Cont);
+                detalii_Cont.Show();
+            }
+            else
+            {
+                MessageBox.Show("Email address is not available.");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            if (!string.IsNullOrEmpty(emailAddress))
+            {
+                Feedback detalii_Cont = new Feedback(emailAddress);
+                this.Parent.Controls.Add(detalii_Cont);
+                detalii_Cont.Show();
+            }
+            else
+            {
+                MessageBox.Show("Email address is not available.");
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
 
         }
     }

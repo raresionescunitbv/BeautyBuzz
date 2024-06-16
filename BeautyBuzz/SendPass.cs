@@ -38,7 +38,7 @@ namespace BeautyBuzz
             timvcode.Start();
             this.username = username;
             this.password = password;
-
+            textResetPass.Text = username;
         }
 
 
@@ -53,7 +53,7 @@ namespace BeautyBuzz
             string pass = ConfigurationManager.AppSettings["GmailPassword"];
 
             Random rnd = new Random();
-            this.Vcode = rnd.Next(1000, 9999); // Generate the verification code here
+            this.Vcode = rnd.Next(1000, 9999); 
 
             mail = Vcode.ToString();
 
@@ -93,6 +93,8 @@ namespace BeautyBuzz
                     ResetPass resetPass = new ResetPass(username);
                     this.Hide();
                     resetPass.Show();
+                    resetPass.TopMost = true;
+
                 }
 
 
@@ -108,9 +110,14 @@ namespace BeautyBuzz
         }
         private void SendPass_Load(object sender, EventArgs e)
         {
-
+            pictureBox1.BackColor = Color.Transparent;
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+          
+            this.Hide();
+        }
     }
 
 }
